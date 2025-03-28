@@ -2,11 +2,11 @@ stages:
   - test
 
 test:
-  image: python:3.8  # Utilise l'image officielle de Python 3.8
+  image: python:3.8
   before_script:
-    - pip install --upgrade pip
-    - pip install -r requirements.txt  # Installe les dépendances à partir de requirements.txt
+    - pip install --upgrade pip  # Met à jour pip
+    - pip install -r requirements.txt
   script:
-    - pytest  # Exécute les tests avec pytest
+    - pytest
   only:
     - main  # Ou la branche de ton choix
