@@ -5,8 +5,8 @@ test:
   image: python:3.8
   before_script:
     - pip install --upgrade pip  # Met à jour pip
-    - pip install -r requirements.txt
+    - python -m venv venv  # Crée un environnement virtuel
+    - source venv/bin/activate  # Active l'environnement virtuel
+    - pip install -r requirements.txt  # Installe les dépendances depuis requirements.txt
   script:
-    - pytest
-  only:
-    - main  # Ou la branche de ton choix
+    - pytest  # Exécute les tests avec pytest
