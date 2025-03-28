@@ -12,6 +12,14 @@ jobs:
   test:
     runs-on: ubuntu-latest
 
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: test  # Le job de déploiement dépend du job de tests : il ne s'exécutera que si les tests sont réussis.
+
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'  # S'assure que le déploiement ne se fait qu'après un push sur 'main'
+
+
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
